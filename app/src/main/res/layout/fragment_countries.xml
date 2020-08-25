@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mibnealam.countries.countrylist.CountriesViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/countries_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="16dp"
+            android:layout_alignParentEnd="true"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="12"
+            app:listData="@{viewModel.countries}"
+            tools:listitem="@layout/item_country" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/status_image"
+            android:layout_width="160dp"
+            android:layout_centerInParent="true"
+            android:layout_height="160dp"
+            countryApiStatus="@{viewModel.status}"/>
+
+    </RelativeLayout>
+</layout>
